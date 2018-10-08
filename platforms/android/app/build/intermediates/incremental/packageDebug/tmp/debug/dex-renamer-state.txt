@@ -1,0 +1,4 @@
+#Mon Oct 08 10:39:39 CST 2018
+base.0=/Users/pengxunpeng/Documents/project/todo-list-weex/todo-list/platforms/android/app/build/intermediates/transforms/dexMerger/debug/0
+path.0=classes.dex
+renamed.0=classes.dex

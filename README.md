@@ -25,3 +25,7 @@ Then, you just need to change the `style` tag as: `<style lang="sass"><style>`.
 ## How to create your own template
 
 See [How-to-create-your-own-template](https://github.com/weex-templates/How-to-create-your-own-template).
+
+## 环境搭建问题
+
+把项目下载下来到能运行安卓avd版本，期间遇到很多环境问题（话说文档写的也太简陋了吧..），大多是android studio的问题。[解决传送门](https://mobilesite.github.io/2017/12/17/weex-enviroment/),基本上遇到的问题这里都有提到。

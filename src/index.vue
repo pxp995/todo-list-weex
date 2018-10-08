@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <image :src="logo" class="logo" />
-    <text class="greeting">The environment is ready!</text>
+    <text class="greeting">The environment is ready! yyayayya</text>
     <router-view/>
   </div>
 </template>
@@ -12,9 +12,9 @@ export default {
   data () {
     return {
       logo: 'https://gw.alicdn.com/tfs/TB1yopEdgoQMeJjy1XaXXcSsFXa-640-302.png'
-    }
+    };
   }
-}
+};
 </script>
 
 <style scoped>
