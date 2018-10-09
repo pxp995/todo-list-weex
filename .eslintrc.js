@@ -27,10 +27,28 @@ module.exports = {
     'vue/no-parsing-error':  [2, {
       "x-invalid-end-tag": false
     }],
-    // allow async-await
-    'generator-star-spacing': 'off',
-    // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'semi': [2, 'always']
+    "no-mixed-spaces-and-tabs" : ["error", "smart-tabs"],
+    'vue/html-indent': ['error', 'tab', {
+			'alignAttributesVertically': true,
+		}],
+    "vue/script-indent": ["error", 'tab', {
+      "baseIndent": 0,
+      "switchCase": 0,
+      "ignores": []
+    }],
+    "linebreak-style": "off",
+    "indent": "off",//缩进风格
+    "quote-props": ["error", "as-needed", { "keywords": true, "unnecessary": true, "numbers": false }],
+    "consistent-this": ["error", "that"],
+    "func-names": "off",
+    "no-underscore-dangle": ["error", { "allow": ["_id", "__v"] }],
+    "no-restricted-dangle": "off",
+    "guard-for-in": "warn",
+    "vars-on-top": "warn",
+    "no-tabs": "off",
+    "class-methods-use-this": "off",
+    "no-plusplus": "off",
+    "semi": [2, "always", { "omitLastInOneLineBlock": true }],
+    "no-unreachable": "error"
   }
 }
