@@ -1,8 +1,8 @@
 /* global Vue */
 import Router from 'vue-router';
-import app from '@/index.vue';
+import todoList from '@/components/views/todoList';
 // import HelloWorld from '@/components/HelloWorld';
-import topbar from '@/components/modules/topbar';
+import editTodoItem from '@/components/views/editTodoItem';
 
 Vue.use(Router);
 
@@ -10,13 +10,13 @@ module.exports = new Router({
 	routes: [
 		{
 			path: '/',
-			name: 'app',
-			component: app
+			name: 'todoList',
+			component: todoList
 		},
 		{
-			path: '/topbar',
-			name: 'topbar',
-			component: topbar
+			path: '/editTodoItem',
+			name: 'editTodoItem',
+			component: editTodoItem
 		}
 	]
 });

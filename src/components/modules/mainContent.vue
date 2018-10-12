@@ -8,57 +8,31 @@
 							class="side-item-input"
 							:value="item.name"
 							placeholder="请输入"
-							@input="inputTodoItem" />
-						<!-- <image @click="editItem(item)"
-							class="item-info"
-							:src="assetsurl + '/icon/info.png'">
-						</image> -->
+							@focus="setEditingItem(item)"
+							@change="updateTodoItem" />
 						<text class="item-info" @click="editItem(item)">i</text>
 					</div>
 				</cell>
 			</template>
 		</list>
-		<wxc-popup
-			:show="isEditFrom"
-			@wxcPopupOverlayClicked="hideEditFrom"
-			pos="bottom"
-			height="500">
-			<div class="side-list">
-				<div>优先级</div>
-				<div>提醒频率</div>
-				<div>提醒时间</div>
-			</div>
-		</wxc-popup>
-		<text>{{testInfo}}</text>
+		<text>{{todoListCon}}</text>
 	</div>
 </template>
 
 <script>
-import { WxcPopup } from 'weex-ui';
+// import { WxcPopup } from 'weex-ui';
+const storage = weex.requireModule('storage');
+// const modal = weex.requireModule('modal');
 module.exports = {
 	components: {
-		WxcPopup
+		// WxcPopup
 	},
 	props: ['addTodoItem'],
 	data: () => ({
-		inputVal: '',
 		assetsurl: 'http://192.168.165.227:8082',
-		todoListCon: [
-			{
-				id: 1,
-				name: '111'
-			},
-			{
-				id: 2,
-				name: '222'
-			},
-			{
-				id: 3,
-				name: '333'
-			}
-		],
+		todoListCon: [],
 		testInfo: null,
-		isEditFrom: false
+		editingItem: {}
 	}),
 	watch: {
 		addTodoItem () {
@@ -69,18 +43,30 @@ module.exports = {
 	},
 	methods: {
 		// 主要内容
-		inputTodoItem (e) {
-			this.inputVal = e.value;
-		},
 		editItem (item) {
-			this.testInfo = item;
-			this.isEditFrom = true;
-			console.log(this.$router);
-			this.$router.push('topbar');
+			// this.testInfo = item;
+			this.$router.push('editTodoItem');
 		},
-		hideEditFrom () {
-			this.isEditFrom = false;
+		// 获取编辑中的item
+		setEditingItem (item) {
+			this.editingItem = item;
+		},
+		// 修改item
+		updateTodoItem (e) {
+			this.editingItem.name = e.value;
+			this.setData();
+		},
+		setData () {
+			storage.setItem('todoListCon', JSON.stringify(this.todoListCon));
+		},
+		getData () {
+			storage.getItem('todoListCon', (res) => {
+				this.todoListCon = JSON.parse(res.data);
+			});
 		}
+	},
+	created () {
+		this.getData();
 	}
 };
 </script>

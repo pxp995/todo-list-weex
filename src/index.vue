@@ -1,14 +1,12 @@
 <template>
 	<div>
-		<todo-list></todo-list>
+		<router-view></router-view>
 	</div>
 </template>
 
 <script>
-import todoList from '@/components/views/todoList';
 module.exports = {
 	components: {
-		todoList
 	},
 	data: () => ({
 	}),
