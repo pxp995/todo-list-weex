@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="edit-todo-item">
 		<wxc-minibar title="详细信息"
 			background-color="#009ff0"
 			text-color="#FFFFFF"
@@ -25,7 +25,7 @@ module.exports = {
 		WxcMinibar
 	},
 	data: () => ({
-		assetsurl: 'http://192.168.165.227:8082'
+		assetsurl: 'http://192.168.169.125:8082'
 	}),
 	methods: {
 		editDone () {
@@ -35,4 +35,12 @@ module.exports = {
 };
 </script>
 <style scoped>
+.edit-todo-item{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: #fff;
+}
 </style>

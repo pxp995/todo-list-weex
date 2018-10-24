@@ -28,7 +28,7 @@ module.exports = {
 		WxcIcon
 	},
 	data: () => ({
-		assetsurl: 'http://192.168.165.227:8082'
+		assetsurl: 'http://192.168.169.125:8082'
 	}),
 	methods: {
 		// 顶部

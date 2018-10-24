@@ -15,7 +15,7 @@
 				</cell>
 			</template>
 		</list>
-		<text>{{todoListCon}}</text>
+		<!-- <text>{{todoListCon}}</text> -->
 	</div>
 </template>
 
@@ -29,7 +29,7 @@ module.exports = {
 	},
 	props: ['addTodoItem'],
 	data: () => ({
-		assetsurl: 'http://192.168.165.227:8082',
+		assetsurl: 'http://192.168.185.122:8082',
 		todoListCon: [],
 		testInfo: null,
 		editingItem: {}
@@ -61,7 +61,12 @@ module.exports = {
 		},
 		getData () {
 			storage.getItem('todoListCon', (res) => {
-				this.todoListCon = JSON.parse(res.data);
+				if (res.data !== 'undefined') {
+					this.todoListCon = JSON.parse(res.data);
+				} else {
+					storage.setItem('todoListCon', JSON.stringify([{ name: 'todoItem1' }]));
+					this.todoListCon = [{ name: 'todoItem1' }];
+				}
 			});
 		}
 	},
